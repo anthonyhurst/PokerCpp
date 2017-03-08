@@ -6,6 +6,7 @@
 class Card {
 public:
     Card(CardRank cardRank, CardClass cardClass);
+    Card();
     void Display();
     char GetCardRank();
     char GetCardClass();

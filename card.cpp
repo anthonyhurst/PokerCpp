@@ -9,6 +9,10 @@ Card::Card(CardRank cardRank, CardClass cardClass) {
     card_class_ = cardClass;
 }
 
+Card::Card() {
+
+}
+
 void Card::Display() {
     cout << GetCardRank() << GetCardClass() << endl;
 }

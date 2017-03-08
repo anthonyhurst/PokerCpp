@@ -8,6 +8,9 @@ class Deck {
 public:
     Deck();
     void Display();
+    Card TakeCard();
+    int Count();
+    void Shuffle();
 private:
     std::list<Card> cards_;
 };
