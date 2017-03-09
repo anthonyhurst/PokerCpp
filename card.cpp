@@ -4,9 +4,9 @@
 
 using namespace std;
 
-Card::Card(CardRank cardRank, CardClass cardClass) {
-    card_rank_ = cardRank;
-    card_class_ = cardClass;
+Card::Card(Rank rank, Suit suit) {
+    rank_ = rank;
+    suit_ = suit;
 }
 
 Card::Card() {
@@ -14,12 +14,12 @@ Card::Card() {
 }
 
 void Card::Display() {
-    cout << GetCardRank() << GetCardClass() << endl;
+    cout << GetCardRank() << GetCardSuit() << endl;
 }
 
 
 char Card::GetCardRank() {
-    switch(card_rank_) {
+    switch(rank_) {
         case 1:
             return 'A';
             break;
@@ -63,8 +63,8 @@ char Card::GetCardRank() {
     }
 }
 
-char Card::GetCardClass() {
-    switch(card_class_) {
+char Card::GetCardSuit() {
+    switch(suit_) {
         case 0:
             return 'C';
             break;

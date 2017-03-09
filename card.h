@@ -5,13 +5,13 @@
 #define CARD_H
 class Card {
 public:
-    Card(CardRank cardRank, CardClass cardClass);
+    Card(Rank rank, Suit suit);
     Card();
     void Display();
     char GetCardRank();
-    char GetCardClass();
+    char GetCardSuit();
 private:
-    CardClass card_class_;
-    CardRank card_rank_;
+    Suit suit_;
+    Rank rank_;
 };
 #endif

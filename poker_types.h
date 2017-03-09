@@ -1,6 +1,6 @@
 #ifndef POKER_TYPES_H
 #define POKER_TYPES_H
-enum CardRank {
+enum Rank {
     Ace = 1,
     Two,
     Three,
@@ -16,7 +16,7 @@ enum CardRank {
     King,
 };
 
-enum CardClass {
+enum Suit {
     Clubs,
     Diamonds,
     Hearts,
