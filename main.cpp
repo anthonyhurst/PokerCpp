@@ -30,4 +30,8 @@ int main(int argc, char* argv[]) {
         cout << endl;
     }
     cout << deck->Count() << endl;
+    free(deck);
+    for (auto it = players.begin(); it != players.end(); ++it) {
+        free(*it);
+    }
 }
