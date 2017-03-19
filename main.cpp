@@ -7,31 +7,27 @@
 using namespace std;
 
 int main(int argc, char* argv[]) { 
-    Deck *deck = new Deck();;
+    Deck deck;
     for (int i = 0; i < 1000; i++) {
-        deck->Shuffle();
+        deck.Shuffle();
     }
-    deck->Display();
-    cout << endl << "Size: " << deck->Count() << endl;
-    list<Player*> players;
+    deck.Display();
+    cout << endl << "Size: " << deck.Count() << endl;
+    list<Player> players;
     for (int i = 0; i < 9; i++) {
-        Player* player = new Player();
+        Player player;
         players.push_back(player);
     }
     cout << "Simulate dealing" << endl;
     for (int i = 0; i < 2; i++) {
         for (auto it = players.begin(); it != players.end(); ++it) {
-            (*it)->GiveCard(deck->TakeCard());    
+            (*it).GiveCard(deck.TakeCard());    
         }
     }
     cout << "Players:" << players.size() << endl;
     for (auto it = players.begin(); it != players.end(); ++it) {
-        (*it)->Display();
+        (*it).Display();
         cout << endl;
     }
-    cout << deck->Count() << endl;
-    free(deck);
-    for (auto it = players.begin(); it != players.end(); ++it) {
-        free(*it);
-    }
+    cout << deck.Count() << endl;
 }
