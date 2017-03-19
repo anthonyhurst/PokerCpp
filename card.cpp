@@ -17,6 +17,17 @@ void Card::Display() {
     cout << GetCardRank() << GetCardSuit() << endl;
 }
 
+int Card::GetCardRankValue() const {
+    return rank_;
+}
+
+// the card suit value is arbitrary and will only be used
+// so that sorting is deterministic.  It should not be used
+// for card or hand valuation.
+int Card::GetCardSuitValue() const {
+    return suit_;
+}
+
 
 char Card::GetCardRank() {
     switch(rank_) {
@@ -79,3 +90,39 @@ char Card::GetCardSuit() {
             break;
     }
 }
+
+bool Card::operator==(const Card& card) {
+    if ((*this).rank_ == card.GetCardRankValue()
+        && (*this).suit_ == card.GetCardSuitValue())
+        return true;
+    return false;
+}
+
+bool Card::operator!=(const Card& card) {
+    return !(*this == card);
+}
+
+bool Card::operator<(const Card& card) {
+    if ((*this).rank_ < card.GetCardRankValue())
+        return true;
+    else if ((*this).rank_ > card.GetCardRankValue()) 
+        return false;
+    // only need to check suit if rank is equal
+    if ((*this).suit_ < card.GetCardSuitValue())
+        return true;
+    return false; // we don't care if equal since we want
+                  // want strictly less than.
+}
+
+bool Card::operator>(const Card& card) {
+    return !(*this == card && *this < card);
+}
+
+bool Card::operator<=(const Card& card) {
+    return (*this < card || *this == card);
+}
+
+bool Card::operator>=(const Card& card) {
+    return (*this > card || *this == card);
+}
+

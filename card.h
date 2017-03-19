@@ -10,6 +10,14 @@ public:
     void Display();
     char GetCardRank();
     char GetCardSuit();
+    int GetCardRankValue() const;
+    int GetCardSuitValue() const;
+    bool operator==(const Card& card);
+    bool operator!=(const Card& card);
+    bool operator<(const Card& card);
+    bool operator>(const Card& card);
+    bool operator<=(const Card& card);
+    bool operator>=(const Card& card);
 private:
     Suit suit_;
     Rank rank_;
