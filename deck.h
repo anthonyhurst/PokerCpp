@@ -11,6 +11,7 @@ public:
     Card TakeCard();
     int Count();
     void Shuffle();
+    void Sort();
 private:
     std::list<Card> cards_;
 };

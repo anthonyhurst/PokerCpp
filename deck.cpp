@@ -47,3 +47,7 @@ void Deck::Display() {
         it->Display();
     }
 }
+
+void Deck::Sort() {
+    cards_.sort();
+}

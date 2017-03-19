@@ -30,4 +30,11 @@ int main(int argc, char* argv[]) {
         cout << endl;
     }
     cout << deck.Count() << endl;
+    deck.Sort();
+    deck.Display();
+    
+    Card card1(Ace, Clubs);
+    Card card2(King, Clubs);
+    cout << "Ace > King? " << (card1 > card2) << endl;
+    
 }
