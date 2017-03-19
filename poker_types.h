@@ -22,4 +22,18 @@ enum Suit {
     Hearts,
     Spades,
 };
+
+enum HandType {
+    HighCard = 1,
+    Pair,
+    TwoPair,
+    ThreeOfAKind,
+    Straight,
+    Flush,
+    FullHouse,
+    FourOfAKind,
+    StraightFlush
+};
+
+
 #endif
