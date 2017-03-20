@@ -20,4 +20,46 @@ public:
     bool HasHand(); 
 };
 
+class FourOfAKind : Hand {
+public:
+    FourOfAKind(std::list<Card> cards) : Hand(cards) { };
+    bool HasHand(); 
+};
+
+class FullHouse : Hand {
+public:
+    FullHouse(std::list<Card> cards) : Hand(cards) { };
+    bool HasHand(); 
+};
+
+class Flush : Hand {
+public:
+    Flush(std::list<Card> cards) : Hand(cards) { };
+    bool HasHand(); 
+};
+
+class Straight : Hand {
+public:
+    Straight(std::list<Card> cards) : Hand(cards) { };
+    bool HasHand(); 
+};
+
+class ThreeOfAKind : Hand {
+public:
+    ThreeOfAKind(std::list<Card> cards) : Hand(cards) { };
+    bool HasHand(); 
+};
+
+class TwoPair : Hand {
+public:
+    TwoPair(std::list<Card> cards) : Hand(cards) { };
+    bool HasHand(); 
+};
+
+class Pair : Hand {
+public:
+    Pair(std::list<Card> cards) : Hand(cards) { };
+    bool HasHand(); 
+};
+
 #endif
