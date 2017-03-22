@@ -6,6 +6,33 @@
 
 using namespace std;
 
+bool HasNCards(list<Card> cards, int n) { 
+    cards.sort();
+    Card lastCard;
+    bool first = true;
+    int i = 1;
+    int max = 0;
+    for (auto card = cards.begin(); card != cards.end(); ++card) {
+        if (first) {
+            lastCard = *card;
+            first = false;
+            continue;
+        }
+        if (lastCard.GetCardRankValue() == (*card).GetCardRankValue())
+            ++i;
+        else {
+            if (i > max)
+                max = i;
+            i = 1;
+        }
+        lastCard = *card;
+    }
+    if (i > max)
+        max = i;
+    return max == n;
+}
+
+
 namespace Hands {
 
     bool StraightFlush::HasHand() {
@@ -15,7 +42,7 @@ namespace Hands {
     }
 
     bool FourOfAKind::HasHand() {
-        return false;
+        return HasNCards(cards_, 4);
     }
 
     bool FullHouse::HasHand() {
@@ -58,7 +85,7 @@ namespace Hands {
         }
         cards_.push_front(realFirst);
         if (realFirst.GetCardRankValue() == 1)
-            if (lastCard.GetCardRankValue() == 12 || firstCard.GetCardRankValue() == 2)
+            if (lastCard.GetCardRankValue() == 13 || firstCard.GetCardRankValue() == 2)
                 return true;
         else if (realFirst.GetCardRankValue() + 1 == firstCard.GetCardRankValue())
             return true;
@@ -66,7 +93,7 @@ namespace Hands {
     }
 
     bool ThreeOfAKind::HasHand() {
-        return false;
+        return HasNCards(cards_, 3);
     }
 
     bool TwoPair::HasHand() {
@@ -74,6 +101,7 @@ namespace Hands {
     }
 
     bool Pair::HasHand() {
-        return false;
+        return HasNCards(cards_, 2);
     }
+
 }

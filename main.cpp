@@ -36,11 +36,10 @@ int main(int argc, char* argv[]) {
     deck.Display();
     
     Card card1(Ace, Clubs);
-    Card card2(King, Clubs);
-    cout << "Ace > King? " << (card1 > card2) << endl;
-    Card card3(Queen, Clubs);
-    Card card4(Ten, Clubs);
-    Card card5(Jack, Spades);
+    Card card2(Two, Diamonds);
+    Card card3(Two, Hearts);
+    Card card4(Two, Spades);
+    Card card5(Two, Clubs);
     list<Card> testCards;
     testCards.push_back(card1);
     testCards.push_back(card2);
@@ -48,13 +47,22 @@ int main(int argc, char* argv[]) {
     testCards.push_back(card4);
     testCards.push_back(card5);
 
-    Hands::Flush hand (testCards);;// flush (testCards);
+    Hands::Flush hand (testCards);
     cout << "HasHand: " << hand.HasHand() << endl;
 
-    Hands::Straight hand2 (testCards);;// flush (testCards);
+    Hands::Straight hand2 (testCards);
     cout << "HasHand: " << hand2.HasHand() << endl;
 
-    Hands::StraightFlush hand3 (testCards);;// flush (testCards);
+    Hands::StraightFlush hand3 (testCards);
     cout << "HasHand: " << hand3.HasHand() << endl;
+
+    Hands::FourOfAKind hand4 (testCards);
+    cout << "HasHand: " << hand4.HasHand() << endl;
+
+    Hands::ThreeOfAKind hand5 (testCards);
+    cout << "HasHand: " << hand5.HasHand() << endl;
+
+    Hands::Pair hand6 (testCards);
+    cout << "HasHand: " << hand6.HasHand() << endl;
     
 }
