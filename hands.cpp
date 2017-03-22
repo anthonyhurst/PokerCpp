@@ -9,7 +9,9 @@ using namespace std;
 namespace Hands {
 
     bool StraightFlush::HasHand() {
-        return false;
+        Flush flush (cards_);
+        Straight straight (cards_);
+        return flush.HasHand() && straight.HasHand();
     }
 
     bool FourOfAKind::HasHand() {

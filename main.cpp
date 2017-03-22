@@ -40,7 +40,7 @@ int main(int argc, char* argv[]) {
     cout << "Ace > King? " << (card1 > card2) << endl;
     Card card3(Queen, Clubs);
     Card card4(Ten, Clubs);
-    Card card5(Nine, Clubs);
+    Card card5(Jack, Spades);
     list<Card> testCards;
     testCards.push_back(card1);
     testCards.push_back(card2);
@@ -49,7 +49,12 @@ int main(int argc, char* argv[]) {
     testCards.push_back(card5);
 
     Hands::Flush hand (testCards);;// flush (testCards);
-    //
     cout << "HasHand: " << hand.HasHand() << endl;
+
+    Hands::Straight hand2 (testCards);;// flush (testCards);
+    cout << "HasHand: " << hand2.HasHand() << endl;
+
+    Hands::StraightFlush hand3 (testCards);;// flush (testCards);
+    cout << "HasHand: " << hand3.HasHand() << endl;
     
 }
