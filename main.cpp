@@ -3,10 +3,12 @@
 #include "card.h"
 #include "deck.h"
 #include "player.h"
+#include "hands.h"
 
 using namespace std;
 
 int main(int argc, char* argv[]) { 
+
     Deck deck;
     for (int i = 0; i < 1000; i++) {
         deck.Shuffle();
@@ -36,5 +38,18 @@ int main(int argc, char* argv[]) {
     Card card1(Ace, Clubs);
     Card card2(King, Clubs);
     cout << "Ace > King? " << (card1 > card2) << endl;
+    Card card3(Queen, Clubs);
+    Card card4(Ten, Clubs);
+    Card card5(Nine, Clubs);
+    list<Card> testCards;
+    testCards.push_back(card1);
+    testCards.push_back(card2);
+    testCards.push_back(card3);
+    testCards.push_back(card4);
+    testCards.push_back(card5);
+
+    Hands::Flush hand (testCards);;// flush (testCards);
+    //
+    cout << "HasHand: " << hand.HasHand() << endl;
     
 }

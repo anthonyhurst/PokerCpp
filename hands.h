@@ -6,60 +6,63 @@
 #ifndef HANDS_H
 #define HANDS_H
 
-class Hand {
-protected:
-    std::list<Card> cards_;
-public:
-    Hand(std::list<Card> cards) { cards_ = cards; };
-    virtual bool HasHand() = 0;
-};
+namespace Hands {
 
-class StraightFlush : Hand {
-public:
-    StraightFlush(std::list<Card> cards) : Hand(cards) { };
-    bool HasHand(); 
-};
+    class Hand {
+    protected:
+        std::list<Card> cards_;
+    public:
+        Hand(std::list<Card> cards) { cards_ = cards; };
+        virtual bool HasHand() = 0;
+    };
 
-class FourOfAKind : Hand {
-public:
-    FourOfAKind(std::list<Card> cards) : Hand(cards) { };
-    bool HasHand(); 
-};
+    class StraightFlush: public Hand {
+    public:
+        StraightFlush(std::list<Card> cards) : Hand(cards) { };
+        bool HasHand(); 
+    };
 
-class FullHouse : Hand {
-public:
-    FullHouse(std::list<Card> cards) : Hand(cards) { };
-    bool HasHand(); 
-};
+    class FourOfAKind: public Hand {
+    public:
+        FourOfAKind(std::list<Card> cards) : Hand(cards) { };
+        bool HasHand(); 
+    };
 
-class Flush : Hand {
-public:
-    Flush(std::list<Card> cards) : Hand(cards) { };
-    bool HasHand(); 
-};
+    class FullHouse: public Hand {
+    public:
+        FullHouse(std::list<Card> cards) : Hand(cards) { };
+        bool HasHand(); 
+    };
 
-class Straight : Hand {
-public:
-    Straight(std::list<Card> cards) : Hand(cards) { };
-    bool HasHand(); 
-};
+    class Flush: public Hand {
+    public:
+        Flush(std::list<Card> cards) : Hand(cards) { };
+        bool HasHand(); 
+    };
 
-class ThreeOfAKind : Hand {
-public:
-    ThreeOfAKind(std::list<Card> cards) : Hand(cards) { };
-    bool HasHand(); 
-};
+    class Straight: public Hand {
+    public:
+        Straight(std::list<Card> cards) : Hand(cards) { };
+        bool HasHand(); 
+    };
 
-class TwoPair : Hand {
-public:
-    TwoPair(std::list<Card> cards) : Hand(cards) { };
-    bool HasHand(); 
-};
+    class ThreeOfAKind: public Hand {
+    public:
+        ThreeOfAKind(std::list<Card> cards) : Hand(cards) { };
+        bool HasHand(); 
+    };
 
-class Pair : Hand {
-public:
-    Pair(std::list<Card> cards) : Hand(cards) { };
-    bool HasHand(); 
-};
+    class TwoPair: public Hand {
+    public:
+        TwoPair(std::list<Card> cards) : Hand(cards) { };
+        bool HasHand(); 
+    };
+
+    class Pair: public Hand {
+    public:
+        Pair(std::list<Card> cards) : Hand(cards) { };
+        bool HasHand(); 
+    };
+}
 
 #endif
