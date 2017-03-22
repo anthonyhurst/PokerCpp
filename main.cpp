@@ -62,7 +62,10 @@ int main(int argc, char* argv[]) {
     Hands::ThreeOfAKind hand5 (testCards);
     cout << "HasHand: " << hand5.HasHand() << endl;
 
-    Hands::Pair hand6 (testCards);
+    Hands::TwoPair hand6 (testCards);
     cout << "HasHand: " << hand6.HasHand() << endl;
+
+    Hands::Pair hand7 (testCards);
+    cout << "HasHand: " << hand7.HasHand() << endl;
     
 }
