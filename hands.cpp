@@ -137,27 +137,6 @@ namespace Hands {
 
     bool TwoPair::HasHand() {
         return HasNandMCards(cards_, 2, 2);
-        cards_.sort();
-        list<Card> tmpCards = cards_;
-        Card lastCard;
-        bool first = true;
-        int count = 0;
-        int originalSize = tmpCards.size();
-        for (int i = 0; i < originalSize; ++i) {
-            if (first) {
-                lastCard = tmpCards.front();
-                tmpCards.pop_front();
-                first = false;
-                continue;
-            }
-            if (lastCard.GetCardRankValue() == tmpCards.front().GetCardRankValue()) {
-                first = true;
-                ++count;
-            }  
-            lastCard = tmpCards.front();
-            tmpCards.pop_front();
-        }
-        return count == 2;
     }
 
     bool Pair::HasHand() {
