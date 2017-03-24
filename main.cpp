@@ -67,5 +67,29 @@ int main(int argc, char* argv[]) {
 
     Hands::Pair hand7 (testCards);
     cout << "HasHand: " << hand7.HasHand() << endl;
+
+
+    testCards.clear();
+
+    Card card6(Ace, Clubs);
+    Card card7(Ace, Diamonds);
+    Card card8(Two, Hearts);
+    Card card9(Two, Spades);
+    Card card10(Two, Clubs);
+
+    testCards.push_back(card6);
+    testCards.push_back(card7);
+    testCards.push_back(card8);
+    testCards.push_back(card9);
+    testCards.push_back(card10);
+
+    cout << "TwoPair Test" << endl;
+    Hands::TwoPair hand8 (testCards);
+    cout << "TwoPair HasHand: " << hand8.HasHand() << endl;
+
+    cout << "FullHouse Test" << endl;
+    Hands::FullHouse hand9 (testCards);
+    cout << "FullHouse HasHand: " << hand9.HasHand() << endl;
+    
     
 }
