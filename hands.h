@@ -2,11 +2,14 @@
 #include <list>
 #include "poker_types.h"
 #include "card.h"
+#include <string>
 
 #ifndef HANDS_H
 #define HANDS_H
 
+
 namespace Hands {
+    
 
     class Hand {
     protected:
@@ -14,6 +17,7 @@ namespace Hands {
     public:
         Hand(std::list<Card> cards) { cards_ = cards; };
         virtual bool HasHand() = 0;
+        const static std::string HandNames[9];
     };
 
     class StraightFlush: public Hand {
@@ -63,6 +67,15 @@ namespace Hands {
         Pair(std::list<Card> cards) : Hand(cards) { };
         bool HasHand(); 
     };
+
+    class HighCard: public Hand {
+    public:
+        HighCard(std::list<Card> cards) : Hand(cards) { };
+        bool HasHand(); 
+    };
+
+    Hand *GetHandFactory(std::string handName, std::list<Card> cards);
+
 }
 
 #endif

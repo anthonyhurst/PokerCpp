@@ -4,6 +4,7 @@
 #include "deck.h"
 #include "player.h"
 #include "hands.h"
+#include <string>
 
 using namespace std;
 
@@ -35,61 +36,36 @@ int main(int argc, char* argv[]) {
     deck.Sort();
     deck.Display();
     
-    Card card1(Ace, Clubs);
-    Card card2(Two, Diamonds);
-    Card card3(Two, Hearts);
-    Card card4(Two, Spades);
-    Card card5(Two, Clubs);
-    list<Card> testCards;
-    testCards.push_back(card1);
-    testCards.push_back(card2);
-    testCards.push_back(card3);
-    testCards.push_back(card4);
-    testCards.push_back(card5);
-
-    Hands::Flush hand (testCards);
-    cout << "HasHand: " << hand.HasHand() << endl;
-
-    Hands::Straight hand2 (testCards);
-    cout << "HasHand: " << hand2.HasHand() << endl;
-
-    Hands::StraightFlush hand3 (testCards);
-    cout << "HasHand: " << hand3.HasHand() << endl;
-
-    Hands::FourOfAKind hand4 (testCards);
-    cout << "HasHand: " << hand4.HasHand() << endl;
-
-    Hands::ThreeOfAKind hand5 (testCards);
-    cout << "HasHand: " << hand5.HasHand() << endl;
-
-    Hands::TwoPair hand6 (testCards);
-    cout << "HasHand: " << hand6.HasHand() << endl;
-
-    Hands::Pair hand7 (testCards);
-    cout << "HasHand: " << hand7.HasHand() << endl;
-
-
-    testCards.clear();
-
     Card card6(Ace, Clubs);
     Card card7(Ace, Diamonds);
     Card card8(Two, Hearts);
     Card card9(Two, Spades);
     Card card10(Two, Clubs);
 
+    list<Card> testCards;
+
     testCards.push_back(card6);
     testCards.push_back(card7);
     testCards.push_back(card8);
     testCards.push_back(card9);
     testCards.push_back(card10);
-
-    cout << "TwoPair Test" << endl;
-    Hands::TwoPair hand8 (testCards);
-    cout << "TwoPair HasHand: " << hand8.HasHand() << endl;
-
-    cout << "FullHouse Test" << endl;
-    Hands::FullHouse hand9 (testCards);
-    cout << "FullHouse HasHand: " << hand9.HasHand() << endl;
     
+    cout << "Cards: " << endl;
     
+    for (auto card = testCards.begin(); card != testCards.end(); ++card) {
+        card->Display();
+    }
+
+    cout << "HandEval: " << endl;
+
+    cout << "HandNames[0] = " << Hands::Hand::HandNames[0] << endl;
+    
+    for (int i = 8; i >= 0; --i) { 
+        Hands::Hand *tmpHand = Hands::GetHandFactory(Hands::Hand::HandNames[i], testCards);
+        if (tmpHand == NULL) {
+            cout << "Factory returned null: " << Hands::Hand::HandNames[i] << endl;
+            continue;
+        }
+        cout << Hands::Hand::HandNames[i] << ": " << (tmpHand->HasHand() ? "yes" : "no") << endl;
+    }
 }

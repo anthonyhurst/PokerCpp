@@ -1,5 +1,8 @@
+#include <string>
+
 #ifndef POKER_TYPES_H
 #define POKER_TYPES_H
+
 enum Rank {
     Ace = 1,
     Two,
@@ -34,6 +37,5 @@ enum HandType {
     FourOfAKind,
     StraightFlush
 };
-
 
 #endif
